@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 21 Jul 2021 pada 14.23
--- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.4.3
+-- Host: localhost:3306
+-- Generation Time: Jan 17, 2025 at 10:57 AM
+-- Server version: 5.7.39
+-- PHP Version: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori`
+-- Table structure for table `kategori_motivasi`
 --
 
-CREATE TABLE `kategori` (
+CREATE TABLE `kategori_motivasi` (
   `id` int(11) NOT NULL,
   `kategori` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -36,7 +35,7 @@ CREATE TABLE `kategori` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `motivasi`
+-- Table structure for table `motivasi`
 --
 
 CREATE TABLE `motivasi` (
@@ -48,21 +47,22 @@ CREATE TABLE `motivasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `motivasi`
+-- Dumping data for table `motivasi`
 --
 
 INSERT INTO `motivasi` (`id`, `isi_motivasi`, `iduser`, `tanggal_input`, `tanggal_update`) VALUES
-(12, 'bangun', 1, '2021-07-10', '2021-07-11'),
-(14, 'soreeee', 1, '2021-07-07', '2021-07-07'),
-(20, 'sdfdvg', 1, '0000-00-00', '0000-00-00'),
-(21, 'dcrcr', 1, '2021-07-21', '2021-07-21'),
-(22, 'dccgfbh', 2, '2021-07-21', '2021-07-21'),
-(23, 'dcdecf', 2, '2021-07-21', '2021-07-21');
+(26, 'haloo ', 3, '2021-07-21', '0000-00-00'),
+(27, 'halo semua', 3, '2021-07-23', '0000-00-00'),
+(28, 'ea ea', 4, '2025-01-10', '2025-01-10'),
+(29, 'Woii', 4, '2025-01-11', '0000-00-00'),
+(30, 'Hallo semua', 6, '2025-01-12', '0000-00-00'),
+(31, 'Cobain di postman', 4, '2025-01-12', '0000-00-00'),
+(34, 'wkwkwkwkwk', 11, '2025-01-16', '0000-00-00');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `report_apk`
+-- Table structure for table `report_apk`
 --
 
 CREATE TABLE `report_apk` (
@@ -73,7 +73,7 @@ CREATE TABLE `report_apk` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `role`
+-- Table structure for table `role`
 --
 
 CREATE TABLE `role` (
@@ -82,7 +82,7 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `role`
+-- Dumping data for table `role`
 --
 
 INSERT INTO `role` (`id`, `role`) VALUES
@@ -92,7 +92,7 @@ INSERT INTO `role` (`id`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -108,39 +108,45 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`iduser`, `nama`, `profesi`, `email`, `password`, `role_id`, `is_active`, `tanggal_input`, `modified`) VALUES
 (1, 'sriyadi', 'dosen', 'sriyadi.sry@bsi.ac.id', '123', 2, 1, '2021-07-16', '2021-07-16'),
 (2, 'affan', 'mahasiswa', 'affan@bsi.ac.id', '321', 2, 1, '2021-07-16', '2021-07-16'),
-(3, 'Fauko Missalam', 'Mahasiswa', 'koko@id.id', '202cb962ac59075b964b07152d234b70', 2, 1, '2021-07-21', '0000-00-00');
+(3, 'Mahasiswa', 'Mahasiswa', 'koko@id.id', '202cb962ac59075b964b07152d234b70', 2, 1, '2021-07-21', '0000-00-00'),
+(4, 'Adi Satria Sejati', 'Front-End Developer', 'adisatriasejati@bsi.ac.id', '25d55ad283aa400af464c76d713c07ad', 2, 1, '2025-01-09', '0000-00-00'),
+(6, 'Annisa Rahma P', 'UI-UX Designer', 'AnnisaRahma@bsi.ac.id', '25d55ad283aa400af464c76d713c07ad', 2, 1, '2025-01-12', '0000-00-00'),
+(9, 'Renal Saputra P.N', 'Web Developer', 'renalsaputra@bsi.ac.id', '25d55ad283aa400af464c76d713c07ad', 2, 1, '2025-01-12', '0000-00-00'),
+(10, 'User Postman', 'Back-end Developer', 'postman123@bsi.ac.id', '25f9e794323b453885f5181f1b624d0b', 2, 1, '2025-01-16', '0000-00-00'),
+(11, 'Web', 'Mahasiswa', 'web@bsi.ac.id', '25d55ad283aa400af464c76d713c07ad', 2, 1, '2025-01-16', '0000-00-00'),
+(12, 'Mobile', 'Mobile Developer', 'mobile@bsi.ac.id', '25d55ad283aa400af464c76d713c07ad', 2, 1, '2025-01-16', '0000-00-00');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `motivasi`
+-- Indexes for table `motivasi`
 --
 ALTER TABLE `motivasi`
   ADD PRIMARY KEY (`id`),
   ADD KEY `iduser` (`iduser`);
 
 --
--- Indeks untuk tabel `report_apk`
+-- Indexes for table `report_apk`
 --
 ALTER TABLE `report_apk`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `role`
+-- Indexes for table `role`
 --
 ALTER TABLE `role`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`iduser`),
@@ -148,45 +154,45 @@ ALTER TABLE `user`
   ADD KEY `role_id` (`role_id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `motivasi`
+-- AUTO_INCREMENT for table `motivasi`
 --
 ALTER TABLE `motivasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT untuk tabel `report_apk`
+-- AUTO_INCREMENT for table `report_apk`
 --
 ALTER TABLE `report_apk`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `role`
+-- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `motivasi`
+-- Constraints for table `motivasi`
 --
 ALTER TABLE `motivasi`
   ADD CONSTRAINT `motivasi_ibfk_1` FOREIGN KEY (`iduser`) REFERENCES `user` (`iduser`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `user`
+-- Constraints for table `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
